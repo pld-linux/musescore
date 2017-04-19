@@ -67,6 +67,8 @@ install -d build.release
 cd build.release
 
 # cmake flags taken from the main Makefile
+CFLAGS="%{rpmcflags} -DNDEBUG -DQT_NO_DEBUG -fPIC" \
+CXXFLAGS="%{rpmcflags} -DNDEBUG -DQT_NO_DEBUG -fPIC" \
 %cmake  \
 	-DMSCORE_INSTALL_SUFFIX="" \
 	-DMUSESCORE_LABEL="" \

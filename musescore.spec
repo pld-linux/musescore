@@ -7,6 +7,7 @@ Release:	0.1
 License:	GPL v2
 Group:		Applications
 Source0:	https://github.com/musescore/MuseScore/archive/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	9f1a870302b27c25e8be729648af1c64
 URL:		https://musescore.org/
 BuildRequires:	Qt5Concurrent-devel
 BuildRequires:	Qt5Core-devel

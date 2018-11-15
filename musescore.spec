@@ -8,12 +8,12 @@
 Summary:	MuseScore - music notation software
 Summary(pl.UTF-8):	MuseScore - oprogramowanie do notacji muzycznej
 Name:		musescore
-Version:	2.2.1
+Version:	2.3.2
 Release:	1
 License:	GPL v2
 Group:		Applications
 Source0:	https://github.com/musescore/MuseScore/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	17db31e37316eb042c6163d3d1463d8f
+# Source0-md5:	db0370d384858653b3ea0670efb8b069
 Source1:	http://ftp.osuosl.org/pub/musescore/soundfont/MuseScore_General/MuseScore_General.sf3
 # Source1-md5:	3e02cc70ae6df3077d0003bbcb95456c
 Source2:	http://ftp.osuosl.org/pub/musescore/soundfont/MuseScore_General/MuseScore_General-License.md
@@ -40,7 +40,7 @@ BuildRequires:	Qt5Widgets-devel >= %{min_qt_version}
 BuildRequires:	Qt5Xml-devel >= %{min_qt_version}
 BuildRequires:	Qt5XmlPatterns-devel >= %{min_qt_version}
 BuildRequires:	alsa-lib-devel
-BuildRequires:	cmake
+BuildRequires:	cmake >= 2.8.7
 BuildRequires:	doxygen
 BuildRequires:	freetype-devel >= 2.5.2
 BuildRequires:	jack-audio-connection-kit-devel >= 0.98
@@ -126,7 +126,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc README.md Compatibility
 %attr(755,root,root) %{_bindir}/mscore
 %attr(755,root,root) %{_bindir}/musescore
-%{_datadir}/mscore-2.2
+%{_datadir}/mscore-2.3
 %{_desktopdir}/mscore.desktop
 %{_iconsdir}/*/*/apps/*
 %{_iconsdir}/*/*/mimetypes/*

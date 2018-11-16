@@ -9,7 +9,7 @@ Summary:	MuseScore - music notation software
 Summary(pl.UTF-8):	MuseScore - oprogramowanie do notacji muzycznej
 Name:		musescore
 Version:	2.3.2
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications
 Source0:	https://github.com/musescore/MuseScore/archive/v%{version}/%{name}-%{version}.tar.gz
@@ -35,7 +35,7 @@ BuildRequires:	Qt5Sql-devel >= %{min_qt_version}
 BuildRequires:	Qt5Svg-devel >= %{min_qt_version}
 BuildRequires:	Qt5Test-devel >= %{min_qt_version}
 BuildRequires:	Qt5UiTools-devel >= %{min_qt_version}
-BuildRequires:	Qt5WebKit-devel >= %{min_qt_version}
+BuildRequires:	Qt5WebKit-devel
 BuildRequires:	Qt5Widgets-devel >= %{min_qt_version}
 BuildRequires:	Qt5Xml-devel >= %{min_qt_version}
 BuildRequires:	Qt5XmlPatterns-devel >= %{min_qt_version}
@@ -93,6 +93,9 @@ CXXFLAGS="%{rpmcxxflags} -DNDEBUG -DQT_NO_DEBUG -fPIC" \
 	-DDOWNLOAD_SOUNDFONT="OFF" \
 	-DUSE_SYSTEM_FREETYPE="ON" \
 	-DBUILD_PORTMIDI="OFF" \
+%ifarch x32
+	-DBUILD_WEBKIT="OFF" \
+%endif
 	..
 
 %{__make} lrelease

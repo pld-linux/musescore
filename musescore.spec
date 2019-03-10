@@ -36,7 +36,9 @@ BuildRequires:	Qt5Sql-devel >= %{min_qt_version}
 BuildRequires:	Qt5Svg-devel >= %{min_qt_version}
 BuildRequires:	Qt5Test-devel >= %{min_qt_version}
 BuildRequires:	Qt5UiTools-devel >= %{min_qt_version}
+%ifnarch x32
 BuildRequires:	Qt5WebEngine-devel >= %{min_qt_version}
+%endif
 BuildRequires:	Qt5Widgets-devel >= %{min_qt_version}
 BuildRequires:	Qt5Xml-devel >= %{min_qt_version}
 BuildRequires:	Qt5XmlPatterns-devel >= %{min_qt_version}
@@ -102,6 +104,9 @@ CXXFLAGS="%{rpmcxxflags} -DNDEBUG -DQT_NO_DEBUG -fPIC" \
 	-DUSE_SYSTEM_FREETYPE="ON" \
 	-DBUILD_PORTMIDI="OFF" \
 	-DBUILD_CRASH_REPORTER="FALSE" \
+%ifarch x32
+	-DBUILD_WEBENGINE="OFF" \
+%endif
 	..
 
 %{__make} lrelease

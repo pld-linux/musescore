@@ -8,12 +8,12 @@
 Summary:	MuseScore - music notation software
 Summary(pl.UTF-8):	MuseScore - oprogramowanie do notacji muzycznej
 Name:		musescore
-Version:	3.0.4
+Version:	3.0.5
 Release:	1
 License:	GPL v2
 Group:		Applications
 Source0:	https://github.com/musescore/MuseScore/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	d2d3cfb28c3da501118e5367eea389f2
+# Source0-md5:	6560f775ae77a586bc8790a7ea76a6e3
 Source1:	http://ftp.osuosl.org/pub/musescore/soundfont/MuseScore_General/MuseScore_General.sf3
 # Source1-md5:	3e02cc70ae6df3077d0003bbcb95456c
 Source2:	http://ftp.osuosl.org/pub/musescore/soundfont/MuseScore_General/MuseScore_General-License.md

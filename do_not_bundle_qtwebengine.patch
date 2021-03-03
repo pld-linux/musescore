@@ -1,13 +1,12 @@
-diff -dur MuseScore-3.0.4.orig/mscore/CMakeLists.txt MuseScore-3.0.4/mscore/CMakeLists.txt
---- MuseScore-3.0.4.orig/mscore/CMakeLists.txt	2019-02-28 12:31:10.000000000 +0100
-+++ MuseScore-3.0.4/mscore/CMakeLists.txt	2019-03-10 16:43:03.375054036 +0100
-@@ -699,21 +699,6 @@
+--- MuseScore-3.6.2/main/CMakeLists.txt~	2021-02-08 12:16:37.000000000 +0000
++++ MuseScore-3.6.2/main/CMakeLists.txt	2021-03-03 21:33:31.167705900 +0000
+@@ -226,22 +226,6 @@
  else (MINGW)
  
     if ( NOT MSVC )
--## install qwebengine core
+-      ## install qwebengine core
 -      if (NOT APPLE AND USE_WEBENGINE)
--         install(FILES
+-         install(PROGRAMS
 -            ${QT_INSTALL_LIBEXECS}/QtWebEngineProcess
 -            DESTINATION bin
 -            )
@@ -20,6 +19,7 @@ diff -dur MuseScore-3.0.4.orig/mscore/CMakeLists.txt MuseScore-3.0.4/mscore/CMak
 -            DESTINATION lib/qt5/translations
 -            )
 -      endif(NOT APPLE AND USE_WEBENGINE)
- 
-       target_link_libraries(mscore
-          ${ALSA_LIB}
+-
+       set_target_properties (
+          mscore
+          PROPERTIES

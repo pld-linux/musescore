@@ -1,18 +1,20 @@
 #
 
-%define min_qt_version 5.8.0
+%define min_qt_version 5.15.0
 
 Summary:	MuseScore - music notation software
 Summary(pl.UTF-8):	MuseScore - oprogramowanie do notacji muzycznej
 Name:		musescore
-Version:	3.2.0
+Version:	3.6.2
 Release:	1
 License:	GPL v2
 Group:		Applications
-Source0:	https://github.com/musescore/MuseScore/releases/download/v3.2/MuseScore-%{version}.zip
-# Source0-md5:	aa5a646019d6e964c697406913998bb0
+Source0:	https://github.com/musescore/MuseScore/archive/v%{version}.tar.gz
+# Source0-md5:	682c4a38b8b39d246d196c392ae08ab7
 Patch0:		do_not_bundle_qtwebengine.patch
-Patch1:		soundfont-install.patch
+Patch1:		desktop.patch
+Patch2:		use-qtmake-qt5.patch
+Patch3:		set_as_stable.patch
 URL:		https://musescore.org/
 BuildRequires:	Qt5Concurrent-devel >= %{min_qt_version}
 BuildRequires:	Qt5Core-devel >= %{min_qt_version}
@@ -31,6 +33,7 @@ BuildRequires:	Qt5UiTools-devel >= %{min_qt_version}
 %ifnarch x32
 BuildRequires:	Qt5WebEngine-devel >= %{min_qt_version}
 %endif
+BuildRequires:	Qt5Quick-controls2-devel
 BuildRequires:	Qt5Widgets-devel >= %{min_qt_version}
 BuildRequires:	Qt5Xml-devel >= %{min_qt_version}
 BuildRequires:	Qt5XmlPatterns-devel >= %{min_qt_version}
@@ -46,6 +49,7 @@ BuildRequires:	pulseaudio-devel
 BuildRequires:	qt5-assistant
 BuildRequires:	qt5-build
 BuildRequires:	qt5-linguist
+BuildRequires:	qt5-qmake
 BuildRequires:	texlive-latex
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -71,10 +75,12 @@ Features:
 - print or create pdf files
 
 %prep
-%setup -q -c -n MuseScore-%{version}
+%setup -q -n MuseScore-%{version}
 
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
+%patch3 -p1
 
 %build
 
@@ -86,6 +92,7 @@ cd build.release
 CFLAGS="%{rpmcflags} -DNDEBUG -DQT_NO_DEBUG -fPIC" \
 CXXFLAGS="%{rpmcxxflags} -DNDEBUG -DQT_NO_DEBUG -fPIC" \
 %cmake  \
+	-DCMAKE_BUILD_TYPE=RELEASE \
 	-DMSCORE_INSTALL_SUFFIX="" \
 	-DMUSESCORE_LABEL="" \
 	-DBUILD_LAME="TRUE" \
@@ -130,7 +137,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc README.md Compatibility
 %attr(755,root,root) %{_bindir}/mscore
 %attr(755,root,root) %{_bindir}/musescore
-%{_datadir}/mscore-3.2
+%{_datadir}/mscore-3.6
 %{_desktopdir}/mscore.desktop
 %{_iconsdir}/*/*/apps/*
 %{_iconsdir}/*/*/mimetypes/*

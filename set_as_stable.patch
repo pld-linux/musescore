@@ -1,0 +1,11 @@
+--- MuseScore-3.6.2/CMakeLists.txt~	2021-03-03 22:52:43.929082684 +0000
++++ MuseScore-3.6.2/CMakeLists.txt	2021-03-03 23:14:24.952219985 +0000
+@@ -108,7 +108,7 @@
+ add_definitions(-DMUSESCORE_REVISION="${MUSESCORE_REVISION}")
+ 
+ # Setup version number and general build settings
+-SET(MUSESCORE_BUILD_CONFIG "dev" CACHE STRING "Build config")
++SET(MUSESCORE_BUILD_CONFIG "release" CACHE STRING "Build config")
+ # Possible MUSESCORE_BUILD_CONFIG values:
+ # - dev     - for development/nightly builds
+ # - testing - for testing versions (alpha, beta, RC)

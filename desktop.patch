@@ -1,5 +1,5 @@
---- MuseScore-4.0.2/build/Linux+BSD/org.musescore.MuseScore.desktop.in~	2023-03-13 12:59:42.000000000 +0000
-+++ MuseScore-4.0.2/build/Linux+BSD/org.musescore.MuseScore.desktop.in	2023-03-16 22:21:45.069756860 +0000
+--- MuseScore-4.1.1/build/Linux+BSD/org.musescore.MuseScore.desktop.in~	2023-07-25 18:38:26.000000000 +0000
++++ MuseScore-4.1.1/build/Linux+BSD/org.musescore.MuseScore.desktop.in	2023-08-06 09:02:12.915705506 +0000
 @@ -8,9 +8,11 @@
  GenericName=Music notation
  GenericName[de]=Notensatz
@@ -9,6 +9,6 @@
  Comment[ru]=Визуальный редактор нотных партитур
  Comment[fr]=Gravure de partitions musicales
 +Comment[pl]=Twórz, odtwarzaj i drukuj partytury
- Icon=mscore@MSCORE_INSTALL_SUFFIX@
- Exec=mscore@MSCORE_INSTALL_SUFFIX@ %F
+ Icon=mscore@MUSESCORE_INSTALL_SUFFIX@
+ Exec=mscore@MUSESCORE_INSTALL_SUFFIX@ %F
  Terminal=false

@@ -5,17 +5,16 @@
 Summary:	MuseScore - music notation software
 Summary(pl.UTF-8):	MuseScore - oprogramowanie do notacji muzycznej
 Name:		musescore
-Version:	4.0.2
+Version:	4.1.1
 Release:	1
 License:	GPL v2
 Group:		Applications
 Source0:	https://github.com/musescore/MuseScore/archive/v%{version}.tar.gz
-# Source0-md5:	e1a5b52bd2cede8f6f332f0f6e315b73
+# Source0-md5:	080fd5bf13ef2774af451ae47de09dee
 Patch0:		no-crashpad.patch
 Patch1:		desktop.patch
 Patch2:		use-qtmake-qt5.patch
 Patch3:		set_as_stable.patch
-Patch4:		%{name}-4.0.2-return.patch
 URL:		https://musescore.org/
 BuildRequires:	Qt5Concurrent-devel >= %{min_qt_version}
 BuildRequires:	Qt5Core-devel >= %{min_qt_version}
@@ -107,7 +106,6 @@ MuseScore.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1
 
 # fix EOL encoding
 sed 's/\r$//' fonts/bravura/OFL-FAQ.txt > tmpfile
@@ -195,10 +193,6 @@ install -p thirdparty/rtf2html/COPYING.LESSER  tmp_doc/COPYING.LESSER.rtf2html
 install -p thirdparty/rtf2html/README          tmp_doc/README.rtf2html
 install -p thirdparty/rtf2html/README.mscore   tmp_doc/README.mscore.rtf2html
 install -p thirdparty/rtf2html/README.ru       tmp_doc/README.ru.rtf2html
-install -p thirdparty/singleapp/LGPL_EXCEPTION.txt tmp_doc/LGPL_EXCEPTION.txt.singleapp
-install -p thirdparty/singleapp/LICENSE.GPL3   tmp_doc/LICENSE.GPL3.singleapp
-install -p thirdparty/singleapp/LICENSE.LGPL   tmp_doc/LICENSE.LGPL.singleapp
-install -p thirdparty/singleapp/README.TXT     tmp_doc/README.TXT.singleapp
 install -p tools/bww2mxml/COPYING              tmp_doc/COPYING.bww2mxml
 install -p tools/bww2mxml/README               tmp_doc/README.bww2mxml
 install -p share/sound/README.md               tmp_doc/README.md.sound
@@ -230,7 +224,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README.md Compatibility LICENSE.GPL tmp_doc/*
 %attr(755,root,root) %{_bindir}/mscore
-%{_datadir}/mscore-4.0
+%{_datadir}/mscore-4.1
 %{_desktopdir}/org.musescore.MuseScore.desktop
 %{_iconsdir}/*/*/apps/*
 %{_iconsdir}/*/*/mimetypes/*

@@ -1,11 +1,11 @@
---- MuseScore-4.0.2/CMakeLists.txt~	2023-03-13 12:59:42.000000000 +0000
-+++ MuseScore-4.0.2/CMakeLists.txt	2023-03-16 22:48:04.570633760 +0000
-@@ -40,7 +40,7 @@
- ###########################################
+--- MuseScore-4.1.1/CMakeLists.txt~	2023-07-25 18:38:26.000000000 +0000
++++ MuseScore-4.1.1/CMakeLists.txt	2023-08-06 09:05:22.472378347 +0000
+@@ -46,7 +46,7 @@
+ # - vtest           - for visual tests (for CI)
+ # - utest           - for unit tests (for CI)
  
- set(MUSESCORE_REVISION "" CACHE STRING "Build revision")
--set(MUSESCORE_BUILD_CONFIG "dev" CACHE STRING "Build config")
-+set(MUSESCORE_BUILD_CONFIG "release" CACHE STRING "Build config")
- # Possible MUSESCORE_BUILD_CONFIG values:
+-set(MUSESCORE_BUILD_MODE "dev" CACHE STRING "Build mode")
++set(MUSESCORE_BUILD_MODE "release" CACHE STRING "Build mode")
+ # Possible MUSESCORE_BUILD_MODE values:
  # - dev     - for development/nightly builds
  # - testing - for testing versions (alpha, beta, RC)
